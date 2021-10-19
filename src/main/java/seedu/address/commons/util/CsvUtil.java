@@ -29,7 +29,7 @@ public class CsvUtil {
     }
 
     /**
-     * Converst CSV File to JSON File
+     * Convert CSV File to JSON File
      *
      * @param constructorOfObjectToDeserialize The constructor for T object
      * @param filePath path of CSV file
@@ -100,6 +100,7 @@ public class CsvUtil {
 
     /**
      * Converts a CSV File to a JSON File
+     *
      * @param constructorOfObjectToDeserialize The constructor for T object
      * @param csvFilePath path of CSV file
      * @param jsonFilePath path of JSON file
@@ -113,6 +114,7 @@ public class CsvUtil {
 
     /**
      * Saves to JSON File
+     *
      * @param jsonString String of JSON Object
      * @param targetFilePath path of JSON file
      * @throws IOException if there was an error reading file
