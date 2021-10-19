@@ -2,6 +2,7 @@ package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TELEGRAM;
 
 import java.util.Arrays;
 
@@ -17,7 +18,7 @@ import seedu.address.model.person.TelegramHandleContainsKeywordsPredicate;
  */
 public class FindCommandParser implements Parser<FindCommand> {
     private static String tagIdentifier = PREFIX_TAG.getPrefix();
-    private static String telegramHandleIdentifier = "@";
+    private static String telegramHandleIdentifier = PREFIX_TELEGRAM.getPrefix();
 
     /**
      * Parses the list of names to be searched for in the context of the FindCommand
@@ -56,7 +57,7 @@ public class FindCommandParser implements Parser<FindCommand> {
      * @throws ParseException if user has not entered at least 1 telegram handle to search for
      */
     public FindCommand parseFindTelegramHandle(String trimmedArgs) throws ParseException {
-        String telegramHandles = trimmedArgs.substring(1).trim();
+        String telegramHandles = trimmedArgs.substring(3).trim();
         if (telegramHandles.isEmpty()) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
@@ -64,6 +65,12 @@ public class FindCommandParser implements Parser<FindCommand> {
         String[] telegramHandleKeywords = telegramHandles.split("\\s+");
         return new FindCommand(new TelegramHandleContainsKeywordsPredicate(Arrays
                 .asList(telegramHandleKeywords)));
+    }
+    private boolean isValidFormat(String trimmedArgs) {
+        boolean isTag = trimmedArgs.indexOf(tagIdentifier) == 0;
+        boolean isTelegram = trimmedArgs.indexOf(telegramHandleIdentifier) == 0;
+        boolean isName = !trimmedArgs.contains("/") && Character.isLetter(trimmedArgs.charAt(0));
+        return isTag || isTelegram || isName;
     }
 
     /**
@@ -74,7 +81,7 @@ public class FindCommandParser implements Parser<FindCommand> {
      */
     public FindCommand parse(String args) throws ParseException {
         String trimmedArgs = args.trim();
-        if (trimmedArgs.isEmpty()) {
+        if (trimmedArgs.isEmpty() || !isValidFormat(trimmedArgs)) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
         }

@@ -22,6 +22,19 @@ public class FindCommandParserTest {
         assertParseFailure(parser, "     ",
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
     }
+
+    @Test
+    public void parse_invalidArg1_throwsParseException() {
+        assertParseFailure(parser, "@alex",
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
+    }
+
+    @Test
+    public void parse_invalidArg2_throwsParseException() {
+        assertParseFailure(parser, "tele/alex",
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
+    }
+
     @Test
     public void parse_validNameArgs_returnsFindCommand() {
         // no leading and trailing whitespaces
@@ -52,10 +65,10 @@ public class FindCommandParserTest {
         FindCommand expectedFindCommand =
                 new FindCommand(new TelegramHandleContainsKeywordsPredicate(Arrays
                         .asList("alex_1", "bern")));
-        assertParseSuccess(parser, "@alex_1 bern", expectedFindCommand);
+        assertParseSuccess(parser, "te/alex_1 bern", expectedFindCommand);
 
         // multiple whitespaces between keywords
-        assertParseSuccess(parser, "@\n alex_1 \n \t bern  \t", expectedFindCommand);
+        assertParseSuccess(parser, "te/\n alex_1 \n \t bern  \t", expectedFindCommand);
     }
 
 }

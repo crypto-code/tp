@@ -123,7 +123,7 @@ public class FindCommandTest {
     public void execute_zeroTelegramHandleKeywords_noPersonFound() {
         String expectedMessage = String.format(MESSAGE_PERSONS_LISTED_OVERVIEW, 0);
         TelegramHandleContainsKeywordsPredicate predicate =
-                prepareTelegramHandlePredicate("@ ");
+                prepareTelegramHandlePredicate("te/ ");
         FindCommand command = new FindCommand(predicate);
         expectedModel.updateFilteredPersonList(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
@@ -134,7 +134,7 @@ public class FindCommandTest {
     public void execute_oneTelegramHandleKeyword_multiplePersonsFound() {
         String expectedMessage = String.format(MESSAGE_PERSONS_LISTED_OVERVIEW, 2);
         TelegramHandleContainsKeywordsPredicate predicate =
-                prepareTelegramHandlePredicate("@meier");
+                prepareTelegramHandlePredicate("te/meier");
         FindCommand command = new FindCommand(predicate);
         expectedModel.updateFilteredPersonList(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
@@ -145,7 +145,7 @@ public class FindCommandTest {
     public void execute_multipleTelegramHandleKeywords_multiplePersonsFound() {
         String expectedMessage = String.format(MESSAGE_PERSONS_LISTED_OVERVIEW, 4);
         TelegramHandleContainsKeywordsPredicate predicate =
-                prepareTelegramHandlePredicate("@meier ku");
+                prepareTelegramHandlePredicate("te/meier ku");
         FindCommand command = new FindCommand(predicate);
         expectedModel.updateFilteredPersonList(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
@@ -156,7 +156,7 @@ public class FindCommandTest {
     public void execute_multipleTelegramHandleKeywords_noPersonsFound() {
         String expectedMessage = String.format(MESSAGE_PERSONS_LISTED_OVERVIEW, 0);
         TelegramHandleContainsKeywordsPredicate predicate =
-                prepareTelegramHandlePredicate("@anonym10 pennywise1");
+                prepareTelegramHandlePredicate("te/anonym10 pennywise1");
         FindCommand command = new FindCommand(predicate);
         expectedModel.updateFilteredPersonList(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
@@ -182,7 +182,7 @@ public class FindCommandTest {
      * Parses {@code userInput} into a {@code TagContainsKeywordsPredicate}.
      */
     private TelegramHandleContainsKeywordsPredicate prepareTelegramHandlePredicate(String userInput) {
-        String telegramHandles = userInput.substring(1);
+        String telegramHandles = userInput.substring(3);
         return new TelegramHandleContainsKeywordsPredicate(Arrays
                 .asList(telegramHandles.split("\\s+")));
     }
