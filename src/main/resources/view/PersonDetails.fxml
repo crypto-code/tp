@@ -18,7 +18,7 @@
                   <Insets bottom="20.0" left="5.0" />
                </VBox.margin>
                <children>
-                  <ImageView id="profileView" fx:id="profileView" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="profileView" fx:id="profileView" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); -fx-background-radius: 20;">
                      <image>
                         <Image url="@../images/profile.png" />
                      </image>

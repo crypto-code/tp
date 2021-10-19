@@ -21,7 +21,7 @@ public class CommandHistory {
     /**
      * Adds a new string to the user string history.
      *
-     * @param s String to be added
+     * @param s String to be added.
      */
     public void add(String s) {
         commands.add(s);
