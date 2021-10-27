@@ -12,6 +12,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import seedu.address.commons.util.GitHubUtil;
 import seedu.address.logic.ai.ThreadProcessor;
 import seedu.address.model.person.Person;
@@ -42,7 +44,7 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private HBox cardPane;
     @FXML
-    private Label name;
+    private TextFlow name;
     @FXML
     private Label id;
     @FXML
@@ -60,10 +62,18 @@ public class PersonCard extends UiPart<Region> {
         super(FXML);
         this.person = person;
         id.setText(displayedIndex + ". ");
-        name.setText(person.getName().fullName);
+        Text nameText = new Text(person.getName().fullName);
+        nameText.getStyleClass().add("big_label");
+        nameText.setFill(Color.WHITE);
+        name.getChildren().add(nameText);
+        String[] tagClasses = new String[] {"tag-general", "tag-event", "tag-mod"};
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+                .forEach(tag -> {
+                    Label temp = new Label(tag.tagName);
+                    temp.setId(tagClasses[tag.getIntType()]);
+                    tags.getChildren().add(temp);
+                });
         Rectangle clip = new Rectangle(
                 profileView.getFitWidth(), profileView.getFitHeight()
         );

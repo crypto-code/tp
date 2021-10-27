@@ -52,7 +52,11 @@ public class Tag {
     }
 
     public String getStringType() {
-        return stringTypes[type.ordinal()];
+        return stringTypes[getIntType()];
+    }
+
+    public int getIntType() {
+        return type.ordinal();
     }
 
     @Override

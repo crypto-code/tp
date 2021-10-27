@@ -91,9 +91,14 @@ public class PersonDetails extends UiPart<Region> {
         telegram.setText("@" + person.getTelegram().value);
         github.setText(person.getGithub().value);
         tags.getChildren().removeIf(c -> true);
+        String[] tagClasses = new String[] {"tag-general", "tag-event", "tag-mod"};
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+                .forEach(tag -> {
+                    Label temp = new Label(tag.tagName);
+                    temp.setId(tagClasses[tag.getIntType()]);
+                    tags.getChildren().add(temp);
+                });
         telegram.setOnMouseClicked((event) -> openTelegram());
         github.setOnMouseClicked((event) -> openGithub());
         if (person.getPhone().value.isBlank()) {

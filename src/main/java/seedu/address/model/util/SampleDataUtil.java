@@ -27,7 +27,7 @@ public class SampleDataUtil {
                     new Phone("91031282"),
                     new Email("adam@example.com"),
                     new Address("Blk 436 Serangoon Gardens Street 26, #16-43"),
-                    getTagSet("friends"),
+                    getTagSet("friends", "mod-cs2103t"),
                     false),
             new Person(new Name("Aishwarya Radhakrishnan Nair"),
                     new Telegram("aishwarya"),
@@ -35,7 +35,7 @@ public class SampleDataUtil {
                     new Phone("87438807"),
                     new Email("aishwarya@example.com"),
                     new Address("Blk 30 Geylang Street 29, #06-40"),
-                    getTagSet("friends"),
+                    getTagSet("friends", "event-hackathon2021"),
                     false),
             new Person(new Name("Cheong Yee Ming"),
                     new Telegram("yee_ming"),
@@ -59,7 +59,7 @@ public class SampleDataUtil {
                     new Phone("92492021"),
                     new Email("jai@example.com"),
                     new Address("Blk 47 Tampines Street 20, #17-35"),
-                    getTagSet("classmates", "event-hackathon2021"),
+                    getTagSet("classmates", "mod-cs2103t"),
                     false)
         };
     }

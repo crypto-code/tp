@@ -11,8 +11,9 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.TextFlow?>
 
-<HBox id="cardPane" fx:id="cardPane" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<HBox id="cardPane" fx:id="cardPane" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <GridPane HBox.hgrow="ALWAYS">
         <columnConstraints>
             <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" minWidth="10" prefWidth="150" />
@@ -41,7 +42,7 @@
                                         <Region fx:constant="USE_PREF_SIZE" />
                                     </minWidth>
                                 </Label>
-                                <Label fx:id="name" styleClass="cell_big_label" text="\$first" />
+                        <TextFlow fx:id="name" styleClass="text-flow" />
                                 <VBox.margin>
                                     <Insets bottom="8.0" />
                                 </VBox.margin>
