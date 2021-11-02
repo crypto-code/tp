@@ -102,19 +102,27 @@ public class AddCommandParserTest {
 
     @Test
     public void parse_compulsoryFieldMissing_failure() {
-        String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE);
+        String expectedMessageMissingName = AddCommand.MESSAGE_NAME_FIELD_MISSING
+                + "\n" + AddCommand.MESSAGE_USAGE;
+
+        String expectedMessageMissingGithub = AddCommand.MESSAGE_GITHUB_FIELD_MISSING
+                + "\n" + AddCommand.MESSAGE_USAGE;
+
+        String expectedMessageMissingTelegram = AddCommand.MESSAGE_TELEGRAM_FIELD_MISSING
+                + "\n" + AddCommand.MESSAGE_USAGE;
 
         // missing name prefix
         assertParseFailure(parser, VALID_NAME_BOB + TELEGRAM_DESC_BOB + GITHUB_DESC_BOB + PHONE_DESC_BOB
-                + EMAIL_DESC_BOB + ADDRESS_DESC_BOB, expectedMessage);
-
-        // missing telegram prefix
-        assertParseFailure(parser, NAME_DESC_BOB + VALID_TELEGRAM_BOB + GITHUB_DESC_BOB + PHONE_DESC_BOB
-                + EMAIL_DESC_BOB + ADDRESS_DESC_BOB, expectedMessage);
+                + EMAIL_DESC_BOB + ADDRESS_DESC_BOB, expectedMessageMissingName);
 
         // missing github prefix
         assertParseFailure(parser, NAME_DESC_BOB + TELEGRAM_DESC_BOB + VALID_GITHUB_BOB + PHONE_DESC_BOB
-                + EMAIL_DESC_BOB + ADDRESS_DESC_BOB, expectedMessage);
+                + EMAIL_DESC_BOB + ADDRESS_DESC_BOB, expectedMessageMissingGithub);
+
+        // missing telegram prefix
+        assertParseFailure(parser, NAME_DESC_BOB + VALID_TELEGRAM_BOB + GITHUB_DESC_BOB + PHONE_DESC_BOB
+                + EMAIL_DESC_BOB + ADDRESS_DESC_BOB, expectedMessageMissingTelegram);
+
     }
 
     @Test
