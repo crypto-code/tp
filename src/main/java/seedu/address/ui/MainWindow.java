@@ -218,7 +218,7 @@ public class MainWindow extends UiPart<Stage> {
      * Menu Bar.
      */
     public void setUserProfileInMenuBar() {
-        if (logic.isProfilePresent()) {
+        if (logic.isProfilePresent() && userDetails.getChildren().isEmpty()) {
             UserProfileInMenuBar userProfileInMenuBar = new UserProfileInMenuBar(logic);
             userDetails.getChildren().add(userProfileInMenuBar.getRoot());
         }
