@@ -156,9 +156,10 @@ public class EditCommand extends Command {
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
+        boolean updatedIsFavourite = editPersonDescriptor.getIsFavourite().orElse(personToEdit.isFavourite());
 
         return new Person(updatedName, updatedTelegram, updatedGithub,
-                updatedPhone, updatedEmail, updatedAddress, updatedTags);
+                updatedPhone, updatedEmail, updatedAddress, updatedTags, updatedIsFavourite);
     }
 
     @Override
@@ -191,6 +192,7 @@ public class EditCommand extends Command {
         private Email email;
         private Address address;
         private Set<Tag> tags;
+        private boolean isFavourite;
         private boolean isProfile;
 
         public EditPersonDescriptor() {}
@@ -207,6 +209,7 @@ public class EditCommand extends Command {
             setEmail(toCopy.email);
             setAddress(toCopy.address);
             setTags(toCopy.tags);
+            setIsFavourite(toCopy.isFavourite);
             setIsProfile(toCopy.isProfile);
         }
 
@@ -221,11 +224,12 @@ public class EditCommand extends Command {
             this.isProfile = isProfile;
         }
 
-        public void setName(Name name) {
-            this.name = name;
-        }
         public boolean getIsProfile() {
             return isProfile;
+        }
+
+        public void setName(Name name) {
+            this.name = name;
         }
 
         public Optional<Name> getName() {
@@ -272,6 +276,14 @@ public class EditCommand extends Command {
             return Optional.ofNullable(address);
         }
 
+        public void setIsFavourite(boolean isFavourite) {
+            this.isFavourite = isFavourite;
+        }
+
+        public Optional<Boolean> getIsFavourite() {
+            return Optional.ofNullable(isFavourite);
+        }
+
         /**
          * Sets {@code tags} to this object's {@code tags}.
          * A defensive copy of {@code tags} is used internally.
@@ -310,7 +322,8 @@ public class EditCommand extends Command {
                     && getPhone().equals(e.getPhone())
                     && getEmail().equals(e.getEmail())
                     && getAddress().equals(e.getAddress())
-                    && getTags().equals(e.getTags());
+                    && getTags().equals(e.getTags())
+                    && getIsFavourite().equals(e.getIsFavourite());
         }
     }
 }
