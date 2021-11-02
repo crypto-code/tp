@@ -20,6 +20,7 @@ CohortConnect is a desktop application for students, professors, and teaching as
 
 For the detailed documentation of this project, see the **[CohortConnect User Guide](https://moretriangles.notion.site/User-Guide-for-Cohort-Connect-v1-2-569db284a3744905ac1397a01028427d)**.
 
-## Acknowledgement
+## Acknowledgements
 
-This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org)
+* This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org)
+* This project uses [jackson-dataformat-csv](https://github.com/FasterXML/jackson-dataformats-text/tree/master/csv) for reading from and writing to CSV files.
