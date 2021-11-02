@@ -18,9 +18,9 @@ public class FavouriteCommand extends Command {
             + "Parameters: INDEX (must be a positive integer)\n"
             + "Example: " + COMMAND_WORD + " 1";
 
-    public static final String MESSAGE_FAVOURITE_PERSON_SUCCESS = "Favourited Person: %1$s";
+    public static final String MESSAGE_FAVOURITE_PERSON_SUCCESS = " has been favourited successfully!";
 
-    public static final String MESSAGE_ALREADY_FAVOURITE_PERSON = "This person has already been favourited.";
+    public static final String MESSAGE_ALREADY_FAVOURITE_PERSON = " has already been favourited.";
 
     private final Index targetIndex;
 
@@ -39,11 +39,15 @@ public class FavouriteCommand extends Command {
 
         Person personToFavourite = lastShownList.get(targetIndex.getZeroBased());
         if (personToFavourite.isFavourite()) {
-            throw new CommandException(MESSAGE_ALREADY_FAVOURITE_PERSON);
+            String errorMessage = personToFavourite.getName().toString()
+                    + MESSAGE_ALREADY_FAVOURITE_PERSON;
+            throw new CommandException(errorMessage);
         }
         model.favouritePerson(personToFavourite);
         model.getPersonListControl().refreshPersonListUI();
-        return new CommandResult(String.format(MESSAGE_FAVOURITE_PERSON_SUCCESS, personToFavourite));
+        String successMessage = personToFavourite.getName().toString()
+                + MESSAGE_FAVOURITE_PERSON_SUCCESS;
+        return new CommandResult(successMessage);
     }
 
     @Override
