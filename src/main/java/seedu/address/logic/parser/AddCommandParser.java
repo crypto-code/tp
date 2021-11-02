@@ -39,6 +39,31 @@ public class AddCommandParser implements Parser<AddCommand> {
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_TELEGRAM, PREFIX_GITHUB, PREFIX_PHONE,
                         PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG);
 
+        if (!arePrefixesPresent(argMultimap, PREFIX_NAME) && !arePrefixesPresent(argMultimap, PREFIX_GITHUB)
+            && !arePrefixesPresent(argMultimap, PREFIX_TELEGRAM)) {
+            String errorMessage = AddCommand.MESSAGE_ALL_COMPULSORY_FIELDS_MISSING
+                    + "\n" + AddCommand.MESSAGE_USAGE;
+            throw new ParseException(errorMessage);
+        }
+
+        if (!arePrefixesPresent(argMultimap, PREFIX_NAME) && !arePrefixesPresent(argMultimap, PREFIX_GITHUB)) {
+            String errorMessage = AddCommand.MESSAGE_NAME_GITHUB_FIELDS_MISSING
+                    + "\n" + AddCommand.MESSAGE_USAGE;
+            throw new ParseException(errorMessage);
+        }
+
+        if (!arePrefixesPresent(argMultimap, PREFIX_NAME) && !arePrefixesPresent(argMultimap, PREFIX_TELEGRAM)) {
+            String errorMessage = AddCommand.MESSAGE_NAME_TELEGRAM_FIELDS_MISSING
+                    + "\n" + AddCommand.MESSAGE_USAGE;
+            throw new ParseException(errorMessage);
+        }
+
+        if (!arePrefixesPresent(argMultimap, PREFIX_GITHUB) && !arePrefixesPresent(argMultimap, PREFIX_TELEGRAM)) {
+            String errorMessage = AddCommand.MESSAGE_GITHUB_TELEGRAM_FIELDS_MISSING
+                    + "\n" + AddCommand.MESSAGE_USAGE;
+            throw new ParseException(errorMessage);
+        }
+
         if (!arePrefixesPresent(argMultimap, PREFIX_NAME)) {
             String errorMessage = AddCommand.MESSAGE_NAME_FIELD_MISSING
                     + "\n" + AddCommand.MESSAGE_USAGE;
