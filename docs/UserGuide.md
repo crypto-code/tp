@@ -522,6 +522,7 @@ A: Please **strictly** follow the command format to avoid such issues.
 | Delete a Student | `delete <INDEX> ` |
 | Exit the App | `exit` |
 | Edit a Student | `edit <INDEX> [n/<NAME>] [te/<TELEGRAM>] [g/<GITHUB>] [p/<PHONE>] [e/<EMAIL>] [a/<ADDRESS>] [t/<TAG>]` |
+| Edit your Profile | `edit profile [n/<NAME>] [te/<TELEGRAM>] [g/<GITHUB>]` |
 | Exporting Student Contacts | `export <FILENAME>.json` <br> `export <FILENAME>.csv` |
 | Favourite a Student Contact | `fav <INDEX>` |
 | Find a Student (by Name) | `find <STRING> ` |
