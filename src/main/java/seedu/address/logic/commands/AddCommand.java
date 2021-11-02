@@ -41,6 +41,9 @@ public class AddCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
+    public static final String MESSAGE_NAME_FIELD_MISSING = "The Name field is compulsory!";
+    public static final String MESSAGE_GITHUB_FIELD_MISSING = "The GitHub field is compulsory!";
+    public static final String MESSAGE_TELEGRAM_FIELD_MISSING = "The Telegram field is compulsory!";
 
     private final Person toAdd;
 
