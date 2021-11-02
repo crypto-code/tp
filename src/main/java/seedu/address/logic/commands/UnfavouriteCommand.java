@@ -21,6 +21,8 @@ public class UnfavouriteCommand extends Command {
 
     public static final String MESSAGE_UNFAVOURITE_PERSON_SUCCESS = "Unfavourited Person: %1$s";
 
+    public static final String MESSAGE_ALREADY_UNFAVOURITE_PERSON = "This person has already been unfavourited.";
+
     private final Index targetIndex;
 
     public UnfavouriteCommand(Index targetIndex) {
@@ -37,6 +39,9 @@ public class UnfavouriteCommand extends Command {
         }
 
         Person personToUnfavourite = lastShownList.get(targetIndex.getZeroBased());
+        if (!personToUnfavourite.isFavourite()) {
+            throw new CommandException(MESSAGE_ALREADY_UNFAVOURITE_PERSON);
+        }
         model.unfavouritePerson(personToUnfavourite);
         model.getPersonListControl().refreshPersonListUI();
         return new CommandResult(String.format(MESSAGE_UNFAVOURITE_PERSON_SUCCESS, personToUnfavourite));
