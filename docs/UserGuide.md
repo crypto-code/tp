@@ -6,7 +6,7 @@ title: User Guide
 <img src = "https://github.com/AY2122S1-CS2103T-T10-1/tp/blob/master/docs/images/logo.jpeg?raw=true" align = "left" width="100" height="100" style="margin-right: 1.25em">
 <div>
   
-  <h1> CohortConnect v1.3b </h1>
+  <h1> CohortConnect v1.4 </h1>
   
   <b> Type. Explore. Connect. </b>
   
@@ -19,31 +19,8 @@ CohortConnect is an advanced desktop address book which facilitates networking a
 Manage large groups of contacts with advanced features such as **Import** for a quick 1-step setup, marking your **Favourite** contacts, as well as finding contacts going to the same **Event**. CohortConnect also makes it easy to connect with like-minded students in your module. Our **Find A Buddy** feature matches you with students who have similar interests by leveraging GitHub’s metadata using a proprietary algorithm.
 
 ## Table of Contents
- - [Purpose](#Purpose)
- - [Prerequisites](#Prerequisites)
- - [Quick Start](#QuickStart)
- - [Features](#Features)
-    - [Navigating Between Tabs - cmd + numkey](#Nav)
-    - [Adding a new Student - add](#Add)
-    - [Delete a Student - delete](#Delete)
-    - [Edit a Student - edit](#Edit)
-    - [Edit your Profile - edit](#EditProfile)
-    - [Find a Student - find](#Find)
-    - [Show a Student Contact - show](#Show)
-    - [Importing Student Contacts - import ](#Import)
-    - [Exporting Student Contacts - export](#Export)
-    - [Setting a Contact as Favourite - fav](#SetFavourite)
-    - [Setting a Contact as Unfavourite - unfav](#SetUnFavourite)
-    - [Displaying the Help Window - help](#Help)
-    - [Listing All Student Contacts - list](#List)
-    - [Deleting All Student Contacts - clear](#Clear)
-    - [Open Telegram of Current User - te](#OpenTelegram)
-    - [Open GitHub of Current User - g](#OpenGithub)
-    - [Retrieve Command History - ↑ / ↓](#CommandHistory)
-    - [Exiting the App - exit](#Exit)
- - [Keyboard Mappings](#KeyboardMappings)
- - [FAQ](#FAQ)
- - [Command Summary](#CommandSummary)
+* Table of Contents
+{:toc}
 
 <h2 id = "Purpose"> </h2>
 
@@ -112,13 +89,12 @@ Notes about command format:
 - `[x/xxx]` refers to an optional field
 
 <div markdown="span" class="alert alert-primary">
-
->:bulb: TIP: In the Command Box, use <kbd>↑</kbd> and <kbd>↓</kbd> arrow keys to navigate the command history.
+:bulb: TIP: In the Command Box, use <kbd>↑</kbd> and <kbd>↓</kbd> arrow keys to navigate the command history.
 </div>
 
 <h3 id = "Nav"> </h3>
 
-## Navigating Between Tabs - <kbd>⌘</kbd> + NumKey
+### Navigating Between Tabs - <kbd>⌘</kbd> + NumKey
 
 * <kbd>⌘</kbd> + 1: Contacts Tab
 * <kbd>⌘</kbd> + 2: Favorites Tab
@@ -128,7 +104,7 @@ Notes about command format:
 
 <h3 id = "Add"> </h3>
 
-## Adding a new Student - `add`
+### Adding a new Student - `add`
 
 Adds a Student to the Address Book.
 
@@ -146,7 +122,7 @@ add n/John Doe te/johndoe g/john-doe p/98765432 e/johnd@eg.com a/John Street, Bl
 
 <h3 id = "Delete"> </h3>
 
-## Delete a Student - `delete`
+### Delete a Student - `delete`
 
 Deletes the specified Student Contact from the Address Book.
 
@@ -164,7 +140,7 @@ delete 7
 
 <h3 id = "Edit"> </h3>
 
-## Edit a Student - `edit`
+### Edit a Student - `edit`
 
 Edits an existing Student Contact in the Address Book.
 
@@ -182,7 +158,7 @@ edit 1 n/John te/john_123 t/TA
 
 <h3 id = "EditProfile"> </h3>
 
-## Edit your Profile - `edit profile`
+### Edit your Profile - `edit profile`
 
 Edits the Profile linked to the Address Book.
 
@@ -200,7 +176,7 @@ edit profile te/bob_osum
 
 <h3 id = "Find"> </h3>
 
-## Find a Student - `find`
+### Find a Student - `find`
 
 Finds an existing Student Contact by name(s), tag(s), or telegram handle(s).
 
@@ -254,7 +230,7 @@ find g/david_boss
 
 <h3 id = "Show"> </h3>
 
-## Show a Student Contact - `show`
+### Show a Student Contact - `show`
 
 Shows detailed information of a Student Contact. This can be done using the name 
 of the contact or the index.
@@ -287,7 +263,7 @@ show 4
 
 <h3 id = "Import"> </h3>
 
-## Importing Student Contacts - `import`
+### Importing Student Contacts - `import`
 
 Imports Student Contacts from the specified JSON or CSV file. File must be in the same folder as the application.
 
@@ -317,7 +293,7 @@ import CS2103T.csv
 
 <h3 id = "Export"> </h3>
 
-## Exporting Student Contacts - `export`
+### Exporting Student Contacts - `export`
 
 Exports the Student Contacts to the specified JSON or CSV file. Exported file will be in the same folder as the application.
 
@@ -347,7 +323,7 @@ export Friends.csv
 
 <h3 id = "SetFavourite"> </h3>
 
-## Setting a Contact as Favourite - `fav`
+### Setting a Contact as Favourite - `fav`
 
 Helps to set a particular Student Contact as a Favourite.
 
@@ -365,7 +341,7 @@ fav 1
 
 <h3 id = "SetUnFavourite"> </h3>
 
-## Setting a Contact as Unfavourite - `unfav`
+### Setting a Contact as Unfavourite - `unfav`
 
 Helps to set a particular Student Contact as an Unfavourite.
 
@@ -383,7 +359,7 @@ unfav 1
 
 <h3 id = "Help"> </h3>
 
-## Displaying the Help Window - `help`
+### Displaying the Help Window - `help`
 
 Displays the Help Window, which consists of a list
 of possible Commands, and a link to this UserGuide.
@@ -406,7 +382,7 @@ help
 
 <h3 id = "List"> </h3>
 
-## Listing All Student Contacts - `list`
+### Listing All Student Contacts - `list`
 
 Lists all the Student Contacts present.
 
@@ -424,7 +400,7 @@ list
 
 <h3 id = "Clear"> </h3>
 
-## Deleting All Student Contacts - `clear`
+### Deleting All Student Contacts - `clear`
 
 Deletes all the Student Contacts present.
 
@@ -444,7 +420,7 @@ clear
 
 <h3 id = "OpenTelegram"> </h3>
 
-## Open Telegram of Current User
+### Open Telegram of Current User
 
 Format:
 
@@ -454,7 +430,7 @@ te
 
 <h3 id = "OpenGithub"> </h3>
 
-## Open GitHub of Current User
+### Open GitHub of Current User
 
 Format:
 
@@ -464,13 +440,13 @@ g
 
 <h3 id = "CommandHistory"> </h3>
 
-## Retrieve Command History - <kbd>↑</kbd> / <kbd>↓</kbd>
+### Retrieve Command History - <kbd>↑</kbd> / <kbd>↓</kbd>
 
 Similar to a Command Line Interface, <kbd>↑</kbd> retrieves the previous command, while <kbd>↓</kbd> retrieves the next command.
 
 <h3 id = "Exit"> </h3>
 
-## Exiting the App - `exit`
+### Exiting the App - `exit`
 
 Exits the App.
 

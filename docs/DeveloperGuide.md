@@ -2,38 +2,61 @@
 layout: page
 title: Developer Guide
 ---
+
+<img src = "https://github.com/AY2122S1-CS2103T-T10-1/tp/blob/master/docs/images/logo.jpeg?raw=true" align = "left" width="100" height="100" style="margin-right: 1.25em">
+<div>
+
+  <h1> CohortConnect v1.4 </h1>
+
+  <b> Type. Explore. Connect. </b>
+</div>
+
+CohortConnect is an advanced desktop address book which facilitates networking among Computer Science (CS) students. It is optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
+
+Manage large groups of contacts with advanced features such as **Import** for a quick 1-step setup, marking your **Favourite** contacts, as well as finding contacts going to the same **Event**. CohortConnect also makes it easy to connect with like-minded students in your module. Our **Find A Buddy** feature matches you with students who have similar interests by leveraging GitHub’s metadata using a proprietary algorithm.
+
+--------------------------------------------------------------------------------------------------------------------
+
+## Table of Contents
+
 * Table of Contents
 {:toc}
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Acknowledgements**
+## Purpose
+
+This guide is intended for current or future developers working on features for CohortConnect, or developers who want to learn
+more about how CohortConnect is built. It explains the requirements of CohortConnect, the implementation of each
+individual component, as well as how they are pieced together to execute user commands.
+
+--------------------------------------------------------------------------------------------------------------------
+
+## Prerequisites
+
+1. General knowledge of Java.
+2. Object-Oriented Programming.
+3. UML Notation.
+4. Basic knowledge of `csv` and `json` file formats.
+5. Basic knowledge of technical terms like `CLI`, `UI`, and `JAR`.
+6. `Java 11` installed on the system.
+
+--------------------------------------------------------------------------------------------------------------------
+
+## Acknowledgements
 
 * This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
+* This project uses [jackson-dataformat-csv](https://github.com/FasterXML/jackson-dataformats-text/tree/master/csv) for reading from and writing to CSV files.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Introduction**
+## Getting Started
 
-CohortConnect is a desktop application for CS students to network. It is optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
-
-Our app makes it easy to connect with like-minded students in your module. Our **Find A Buddy** feature matches you with students who have similar interests by leveraging Github’s metadata using a proprietary algorithm.
-
-This guide is for current or future developers working on features for CohortConnect, or developers who want to learn 
-more about how CohortConnect is built. It explains the requirements of CohortConnect, the implementation of each 
-individual component, as well as how they are pieced together to execute a command entered by the user.
-
-This developer guide assumes the reader has general knowledge of Java, Object-Oriented Programming and UML notation.
+Refer to our [Quick Start](https://ay2122s1-cs2103t-t10-1.github.io/tp/UserGuide.html#QuickStart) in our User Guide.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Setting up, getting started**
-
-Refer to the guide [_Setting up and getting started_](SettingUp.md).
-
---------------------------------------------------------------------------------------------------------------------
-
-## **Design**
+## Design
 
 <div markdown="span" class="alert alert-primary">
 
@@ -164,7 +187,7 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Implementation**
+## Implementation
 
 This section describes noteworthy details on how certain features are implemented.
 
@@ -363,7 +386,7 @@ the `execute("show alex")` API call.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Documentation, logging, testing, configuration, dev-ops**
+## Documentation, logging, testing, configuration, dev-ops
 
 * [Documentation guide](Documentation.md)
 * [Testing guide](Testing.md)
@@ -373,7 +396,7 @@ the `execute("show alex")` API call.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix: Requirements**
+## Appendix: Requirements
 
 ### Product scope
 
@@ -624,7 +647,7 @@ Extensions
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix: Instructions for manual testing**
+## Appendix: Instructions for manual testing
 
 Given below are instructions to test the app manually.
 

@@ -11,7 +11,9 @@
 </div>
 
 <br>
-Cohort connect is a desktop application for students, professors, and teaching assistants to connect, optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
+CohortConnect is an advanced desktop address book which facilitates networking among Computer Science (CS) students. It is optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
+
+Manage large groups of contacts with advanced features such as **Import** for a quick 1-step setup, marking your **Favourite** contacts, as well as finding contacts going to the same **Event**. CohortConnect also makes it easy to connect with like-minded students in your module. Our **Find A Buddy** feature matches you with students who have similar interests by leveraging GitHub’s metadata using a proprietary algorithm.
 <br><br>
 
 <div align = "center"> 
@@ -19,7 +21,7 @@ Cohort connect is a desktop application for students, professors, and teaching a
 </div>
 <br>
 
-For more detailed documentation of this project, visit the **[CohortConnect User Guide](https://ay2122s1-cs2103t-t10-1.github.io/tp/UserGuide.html)**.
+Get started at our **[CohortConnect User Guide](https://ay2122s1-cs2103t-t10-1.github.io/tp/UserGuide.html)**.
 
 If you are a developer, have a look at the **[CohortConnect Developer Guide](https://ay2122s1-cs2103t-t10-1.github.io/tp/DeveloperGuide.html)**.
 
