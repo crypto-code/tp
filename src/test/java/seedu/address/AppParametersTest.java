@@ -1,6 +1,8 @@
 package seedu.address;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.nio.file.Paths;
 import java.util.Collections;
@@ -18,10 +20,43 @@ public class AppParametersTest {
     private final AppParameters expected = new AppParameters();
 
     @Test
+    public void equals_validConfigPath_success() {
+        parametersStub.namedParameters.put("config", "config.json");
+        expected.setConfigPath(Paths.get("config.json"));
+        assertTrue(expected.equals(AppParameters.parse(parametersStub)));
+    }
+
+    @Test
+    public void equals_sameInstance_success() {
+        expected.setConfigPath(Paths.get("config.json"));
+        assertTrue(expected.equals(expected));
+    }
+
+    @Test
+    public void equals_invalidConfigPath_success() {
+        parametersStub.namedParameters.put("config", "config.json");
+        expected.setConfigPath(Paths.get("configg.json"));
+        assertFalse(expected.equals(AppParameters.parse(parametersStub)));
+    }
+
+    @Test
+    public void equals_notInstance_success() {
+        expected.setConfigPath(Paths.get("config.json"));
+        assertFalse(expected.equals("not instance of AppParameter"));
+    }
+
+    @Test
     public void parse_validConfigPath_success() {
         parametersStub.namedParameters.put("config", "config.json");
         expected.setConfigPath(Paths.get("config.json"));
         assertEquals(expected, AppParameters.parse(parametersStub));
+    }
+
+    @Test
+    public void hashcode_sameInstance_success() {
+        parametersStub.namedParameters.put("config", "config.json");
+        expected.setConfigPath(Paths.get("config.json"));
+        assertTrue(expected.hashCode() == AppParameters.parse(parametersStub).hashCode());
     }
 
     @Test
