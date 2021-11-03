@@ -1,14 +1,16 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.commands.CommandTestUtil.*;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_DOUBLE_FILENAME_TXT;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_FILENAME_TXT;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_FILENAME_CSV;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_FILENAME_JSON;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.ExportCommand;
-import seedu.address.logic.commands.ImportCommand;
 
 public class ExportCommandParserTest {
 

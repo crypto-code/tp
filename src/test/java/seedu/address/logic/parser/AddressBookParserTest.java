@@ -21,11 +21,11 @@ import seedu.address.logic.commands.CommandTestUtil;
 import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
-import seedu.address.logic.commands.GithubCommand;
 import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.ExportCommand;
 import seedu.address.logic.commands.FavouriteCommand;
 import seedu.address.logic.commands.FindCommand;
+import seedu.address.logic.commands.GithubCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ImportCommand;
 import seedu.address.logic.commands.ListCommand;
@@ -138,11 +138,11 @@ public class AddressBookParserTest {
 
     @Test
     public void parseCommand_tag() throws Exception {
-        String add_tag_prefix = "a/";
+        String addTagPrefix = "a/";
         System.out.println(TagCommand.COMMAND_WORD + " "
                 + INDEX_FIRST_PERSON.getOneBased() + " " + CommandTestUtil.VALID_TAG_FRIEND);
         TagCommand command = (TagCommand) parser.parseCommand(TagCommand.COMMAND_WORD + " "
-                + INDEX_FIRST_PERSON.getOneBased() + " " + add_tag_prefix + CommandTestUtil.VALID_TAG_FRIEND);
+                + INDEX_FIRST_PERSON.getOneBased() + " " + addTagPrefix + CommandTestUtil.VALID_TAG_FRIEND);
         ArrayList<Tag> tagsToAdd = new ArrayList<Tag>();
         tagsToAdd.add(new Tag(CommandTestUtil.VALID_TAG_FRIEND));
         ArrayList<Tag> tagsToRemove = new ArrayList<Tag>();
