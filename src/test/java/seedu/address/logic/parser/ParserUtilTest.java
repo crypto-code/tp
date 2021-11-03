@@ -43,7 +43,22 @@ public class ParserUtilTest {
     private static final String WHITESPACE = " \t\r\n";
 
     @Test
-    public void parseIndex_invalidInput_throwsParseException() {
+    public void parseIndex_emptyInput_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseIndex(""));
+    }
+
+    @Test
+    public void parseIndex_invalidInputNegativeNumber_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseIndex("-1"));
+    }
+
+    @Test
+    public void parseIndex_invalidInputNumbersWithSpace_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseIndex("3 0"));
+    }
+
+    @Test
+    public void parseIndex_invalidInputNumbersAndAlphabet_throwsParseException() {
         assertThrows(ParseException.class, () -> ParserUtil.parseIndex("10 a"));
     }
 
