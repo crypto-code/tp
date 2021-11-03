@@ -77,6 +77,21 @@ This User Guide is intended for basic to advanced users of CohortConnect. It pro
 
 > * Main Window.
 
+## Keyboard Mappings
+
+1. <kbd>⌘</kbd> + <kbd>1</kbd>: To Switch to Contacts Tab.
+2. <kbd>⌘</kbd> + <kbd>2</kbd>: To Switch to Favorites Tab.
+3. <kbd>⌘</kbd> + <kbd>3</kbd>: To Switch to Events Tab.
+4. <kbd>⌘</kbd> + <kbd>4</kbd>: To Switch to Find a Buddy Tab.
+5. <kbd>⌘</kbd> + <kbd>P</kbd>: To Launch the Profile Window.
+6. <kbd>↑</kbd>: To Retrieve the Last Entered Command (Similar to Terminal).
+7. <kbd>↓</kbd>: To Retrieve the Next Entered Command (Similar to Terminal).
+8. <kbd>F1</kbd>: To Launch the Help Window.
+
+<div markdown="span" class="alert alert-primary">
+:bulb: TIP: <kbd>⌘</kbd> for Mac = <kbd>Ctrl</kbd> for Windows
+</div>
+
 ## Features
 
 Notes about command format:
@@ -86,13 +101,6 @@ Notes about command format:
 <div markdown="span" class="alert alert-primary">
 :bulb: TIP: In the Command Box, use <kbd>↑</kbd> and <kbd>↓</kbd> arrow keys to navigate the command history.
 </div>
-
-### Navigating Between Tabs - <kbd>⌘</kbd> + NumKey
-
-* <kbd>⌘</kbd> + 1: Contacts Tab
-* <kbd>⌘</kbd> + 2: Favorites Tab
-* <kbd>⌘</kbd> + 3: Events Tab
-* <kbd>⌘</kbd> + 4: Find A Buddy Tab
 
 ### Adding a new Student - `add`
 
@@ -418,21 +426,6 @@ Example:
 ```
 exit
 ```
-
-## Keyboard Mappings
-
-1. <kbd>⌘</kbd> + <kbd>1</kbd>: To Switch to Contacts Tab.
-2. <kbd>⌘</kbd> + <kbd>2</kbd>: To Switch to Favorites Tab.
-3. <kbd>⌘</kbd> + <kbd>3</kbd>: To Switch to Events Tab.
-4. <kbd>⌘</kbd> + <kbd>4</kbd>: To Switch to Find a Buddy Tab.
-5. <kbd>⌘</kbd> + <kbd>P</kbd>: To Launch the Profile Window.
-6. <kbd>↑</kbd>: To Retrieve the Last Entered Command (Similar to Terminal).
-7. <kbd>↓</kbd>: To Retrieve the Next Entered Command (Similar to Terminal).
-8. <kbd>F1</kbd>: To Launch the Help Window.
-
-<div markdown="span" class="alert alert-primary">
-:bulb: TIP: <kbd>⌘</kbd> for Mac = <kbd>Ctrl</kbd> for Windows
-</div>
 
 ## FAQ
 
