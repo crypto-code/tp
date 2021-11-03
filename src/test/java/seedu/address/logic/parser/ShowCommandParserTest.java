@@ -18,8 +18,7 @@ public class ShowCommandParserTest {
 
     @Test
     public void parse_invalidName_throwsParseException() {
-        String invalidName = CommandTestUtil.INVALID_NAME;
-        assertParseFailure(parser, invalidName,
+        assertParseFailure(parser, CommandTestUtil.INVALID_NAME,
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, ShowCommand.MESSAGE_USAGE));
     }
 
