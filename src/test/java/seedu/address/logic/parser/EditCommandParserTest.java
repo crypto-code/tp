@@ -58,6 +58,8 @@ public class EditCommandParserTest {
     private static final String MESSAGE_INVALID_FORMAT =
             String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE);
 
+    private static final String PROFILE = "profile";
+
     private EditCommandParser parser = new EditCommandParser();
 
     @Test
@@ -70,6 +72,18 @@ public class EditCommandParserTest {
 
         // no index and no field specified
         assertParseFailure(parser, "", MESSAGE_INVALID_FORMAT);
+    }
+
+    @Test
+    public void parse_missingPartsProfile_failure() {
+        // no index specified
+        assertParseFailure(parser, PROFILE + " " + VALID_NAME_AMY, MESSAGE_INVALID_FORMAT);
+
+        // no field specified
+        assertParseFailure(parser, PROFILE + " " + "1", MESSAGE_INVALID_FORMAT);
+
+        // no index and no field specified
+        assertParseFailure(parser, PROFILE + " " + "", EditCommand.MESSAGE_NOT_EDITED);
     }
 
     @Test
