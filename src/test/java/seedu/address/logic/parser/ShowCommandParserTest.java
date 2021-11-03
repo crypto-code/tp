@@ -16,6 +16,12 @@ public class ShowCommandParserTest {
     private ShowCommandParser parser = new ShowCommandParser();
 
     @Test
+    public void parse_invalidName_throwsParseException() {
+        String invalidName = "Ch4rlo++#";
+        assertParseFailure(parser, invalidName, ShowCommand.MESSAGE_INVALID_NAME);
+    }
+
+    @Test
     public void parse_emptyArg_throwsParseException() {
         assertParseFailure(parser, "     ", String.format(MESSAGE_INVALID_COMMAND_FORMAT, ShowCommand.MESSAGE_USAGE));
     }
