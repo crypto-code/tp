@@ -8,12 +8,19 @@ import java.util.Collections;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.logic.commands.CommandTestUtil;
 import seedu.address.logic.commands.ShowCommand;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 
 public class ShowCommandParserTest {
 
     private ShowCommandParser parser = new ShowCommandParser();
+
+    @Test
+    public void parse_invalidName_throwsParseException() {
+        String invalidName = CommandTestUtil.INVALID_NAME;
+        assertParseFailure(parser, invalidName, String.format(MESSAGE_INVALID_COMMAND_FORMAT, ShowCommand.MESSAGE_USAGE));
+    }
 
     @Test
     public void parse_emptyArg_throwsParseException() {
