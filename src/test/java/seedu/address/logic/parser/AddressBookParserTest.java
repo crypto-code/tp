@@ -1,12 +1,14 @@
 package seedu.address.logic.parser;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,16 +17,26 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.ClearCommand;
+import seedu.address.logic.commands.CommandTestUtil;
 import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
+import seedu.address.logic.commands.GithubCommand;
 import seedu.address.logic.commands.ExitCommand;
+import seedu.address.logic.commands.ExportCommand;
+import seedu.address.logic.commands.FavouriteCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
+import seedu.address.logic.commands.ImportCommand;
 import seedu.address.logic.commands.ListCommand;
+import seedu.address.logic.commands.ShowCommand;
+import seedu.address.logic.commands.TagCommand;
+import seedu.address.logic.commands.TelegramCommand;
+import seedu.address.logic.commands.UnfavouriteCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
+import seedu.address.model.tag.Tag;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 import seedu.address.testutil.PersonBuilder;
 import seedu.address.testutil.PersonUtil;
@@ -69,11 +81,32 @@ public class AddressBookParserTest {
     }
 
     @Test
+    public void parseCommand_export() throws Exception {
+        String filename = "friends.csv";
+        ExportCommand command = (ExportCommand) parser.parseCommand(ExportCommand.COMMAND_WORD + " "
+                + filename);
+        assertEquals(new ExportCommand(filename), command);
+    }
+
+    @Test
+    public void parseCommand_favourite() throws Exception {
+        FavouriteCommand command = (FavouriteCommand) parser.parseCommand(FavouriteCommand.COMMAND_WORD + " "
+                + INDEX_FIRST_PERSON.getOneBased());
+        assertEquals(new FavouriteCommand(INDEX_FIRST_PERSON), command);
+    }
+
+    @Test
     public void parseCommand_find() throws Exception {
         List<String> keywords = Arrays.asList("foo", "bar", "baz");
         FindCommand command = (FindCommand) parser.parseCommand(
                 FindCommand.COMMAND_WORD + " " + keywords.stream().collect(Collectors.joining(" ")));
         assertEquals(new FindCommand(new NameContainsKeywordsPredicate(keywords)), command);
+    }
+
+    @Test
+    public void parseCommand_github() throws Exception {
+        GithubCommand command = (GithubCommand) parser.parseCommand(GithubCommand.COMMAND_WORD);
+        assertNotEquals(new GithubCommand(), command);
     }
 
     @Test
@@ -83,9 +116,50 @@ public class AddressBookParserTest {
     }
 
     @Test
+    public void parseCommand_import() throws Exception {
+        String filename = "friends.csv";
+        ImportCommand command = (ImportCommand) parser.parseCommand(ImportCommand.COMMAND_WORD + " "
+                + filename);
+        assertEquals(new ImportCommand(filename), command);
+    }
+
+    @Test
     public void parseCommand_list() throws Exception {
         assertTrue(parser.parseCommand(ListCommand.COMMAND_WORD) instanceof ListCommand);
         assertThrows(ParseException.class, () -> parser.parseCommand(ListCommand.COMMAND_WORD + " 3"));
+    }
+
+    @Test
+    public void parseCommand_show() throws Exception {
+        ShowCommand command = (ShowCommand) parser.parseCommand(ShowCommand.COMMAND_WORD
+            + " " + INDEX_FIRST_PERSON.getOneBased());
+        assertEquals(new ShowCommand(INDEX_FIRST_PERSON), command);
+    }
+
+    @Test
+    public void parseCommand_tag() throws Exception {
+        String add_tag_prefix = "a/";
+        System.out.println(TagCommand.COMMAND_WORD + " "
+                + INDEX_FIRST_PERSON.getOneBased() + " " + CommandTestUtil.VALID_TAG_FRIEND);
+        TagCommand command = (TagCommand) parser.parseCommand(TagCommand.COMMAND_WORD + " "
+                + INDEX_FIRST_PERSON.getOneBased() + " " + add_tag_prefix + CommandTestUtil.VALID_TAG_FRIEND);
+        ArrayList<Tag> tagsToAdd = new ArrayList<Tag>();
+        tagsToAdd.add(new Tag(CommandTestUtil.VALID_TAG_FRIEND));
+        ArrayList<Tag> tagsToRemove = new ArrayList<Tag>();
+        assertEquals(new TagCommand(INDEX_FIRST_PERSON, tagsToAdd, tagsToRemove), command);
+    }
+
+    @Test
+    public void parseCommand_telegram() throws Exception {
+        TelegramCommand command = (TelegramCommand) parser.parseCommand(TelegramCommand.COMMAND_WORD);
+        assertNotEquals(new TelegramCommand(), command);
+    }
+
+    @Test
+    public void parseCommand_unfavourite() throws Exception {
+        UnfavouriteCommand command = (UnfavouriteCommand) parser.parseCommand(UnfavouriteCommand.COMMAND_WORD + " "
+                + INDEX_FIRST_PERSON.getOneBased());
+        assertEquals(new UnfavouriteCommand(INDEX_FIRST_PERSON), command);
     }
 
     @Test
