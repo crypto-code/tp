@@ -64,6 +64,11 @@ public class AddCommandParserTest {
                 + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB + TAG_DESC_FRIEND,
                 new AddCommand(expectedPerson));
 
+        // multiple githubs - last github accepted
+        assertParseSuccess(parser, NAME_DESC_BOB + TELEGRAM_DESC_BOB + GITHUB_DESC_AMY + GITHUB_DESC_BOB
+                        + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB + TAG_DESC_FRIEND,
+                new AddCommand(expectedPerson));
+
         // multiple telegrams - last telegram accepted
         assertParseSuccess(parser, NAME_DESC_BOB + TELEGRAM_DESC_AMY + TELEGRAM_DESC_BOB + GITHUB_DESC_BOB
                 + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB + TAG_DESC_FRIEND,
@@ -93,15 +98,50 @@ public class AddCommandParserTest {
     }
 
     @Test
-    public void parse_optionalFieldsMissing_success() {
+    public void parse_singleOptionalFieldsMissing_success() {
+
+        Person expectedPerson = new PersonBuilder(AMY).withPhone("").build();
+        // zero phone
+        assertParseSuccess(parser, NAME_DESC_AMY + TELEGRAM_DESC_AMY + GITHUB_DESC_AMY
+                + EMAIL_DESC_AMY + ADDRESS_DESC_AMY + TAG_DESC_FRIEND, new AddCommand(expectedPerson));
+
+        // zero email
+        expectedPerson = new PersonBuilder(AMY).withEmail("").build();
+        assertParseSuccess(parser, NAME_DESC_AMY + TELEGRAM_DESC_AMY + GITHUB_DESC_AMY
+                + PHONE_DESC_AMY + ADDRESS_DESC_AMY + TAG_DESC_FRIEND, new AddCommand(expectedPerson));
+
+        // zero address
+        expectedPerson = new PersonBuilder(AMY).withAddress("").build();
+        assertParseSuccess(parser, NAME_DESC_AMY + TELEGRAM_DESC_AMY + GITHUB_DESC_AMY + PHONE_DESC_AMY
+                + EMAIL_DESC_AMY + TAG_DESC_FRIEND, new AddCommand(expectedPerson));
+
         // zero tags
-        Person expectedPerson = new PersonBuilder(AMY).withTags().build();
+        expectedPerson = new PersonBuilder(AMY).withTags().build();
         assertParseSuccess(parser, NAME_DESC_AMY + TELEGRAM_DESC_AMY + GITHUB_DESC_AMY + PHONE_DESC_AMY
                 + EMAIL_DESC_AMY + ADDRESS_DESC_AMY, new AddCommand(expectedPerson));
     }
 
     @Test
-    public void parse_compulsoryFieldMissing_failure() {
+    public void parse_multipleOptionalFieldsMissing_success() {
+
+        Person expectedPerson = new PersonBuilder(AMY).withPhone("").withEmail("").build();
+        // zero phone and email
+        assertParseSuccess(parser, NAME_DESC_AMY + TELEGRAM_DESC_AMY + GITHUB_DESC_AMY
+                + ADDRESS_DESC_AMY + TAG_DESC_FRIEND, new AddCommand(expectedPerson));
+
+        // zero address and tags
+        expectedPerson = new PersonBuilder(AMY).withAddress("").withTags().build();
+        assertParseSuccess(parser, NAME_DESC_AMY + TELEGRAM_DESC_AMY + GITHUB_DESC_AMY + PHONE_DESC_AMY
+                + EMAIL_DESC_AMY, new AddCommand(expectedPerson));
+
+        // zero phone, email, address and tags
+        expectedPerson = new PersonBuilder(AMY).withPhone("").withEmail("").withAddress("").withTags().build();
+        assertParseSuccess(parser, NAME_DESC_AMY + TELEGRAM_DESC_AMY + GITHUB_DESC_AMY,
+                new AddCommand(expectedPerson));
+    }
+
+    @Test
+    public void parse_oneCompulsoryFieldMissing_failure() {
         String expectedMessageMissingName = AddCommand.MESSAGE_NAME_FIELD_MISSING
                 + "\n" + AddCommand.MESSAGE_USAGE;
 
@@ -122,6 +162,42 @@ public class AddCommandParserTest {
         // missing telegram prefix
         assertParseFailure(parser, NAME_DESC_BOB + VALID_TELEGRAM_BOB + GITHUB_DESC_BOB + PHONE_DESC_BOB
                 + EMAIL_DESC_BOB + ADDRESS_DESC_BOB, expectedMessageMissingTelegram);
+
+    }
+
+    @Test
+    public void parse_twoCompulsoryFieldMissing_failure() {
+        String expectedMessageMissingName = AddCommand.MESSAGE_NAME_GITHUB_FIELDS_MISSING
+                + "\n" + AddCommand.MESSAGE_USAGE;
+
+        String expectedMessageMissingGithub = AddCommand.MESSAGE_NAME_TELEGRAM_FIELDS_MISSING
+                + "\n" + AddCommand.MESSAGE_USAGE;
+
+        String expectedMessageMissingTelegram = AddCommand.MESSAGE_GITHUB_TELEGRAM_FIELDS_MISSING
+                + "\n" + AddCommand.MESSAGE_USAGE;
+
+        // missing name and github prefix
+        assertParseFailure(parser, VALID_NAME_BOB + TELEGRAM_DESC_BOB + VALID_GITHUB_BOB + PHONE_DESC_BOB
+                + EMAIL_DESC_BOB + ADDRESS_DESC_BOB, expectedMessageMissingName);
+
+        // missing name and telegram prefix
+        assertParseFailure(parser, VALID_NAME_BOB + VALID_TELEGRAM_BOB + GITHUB_DESC_BOB + PHONE_DESC_BOB
+                + EMAIL_DESC_BOB + ADDRESS_DESC_BOB, expectedMessageMissingGithub);
+
+        // missing github and telegram prefix
+        assertParseFailure(parser, NAME_DESC_BOB + VALID_TELEGRAM_BOB + VALID_GITHUB_BOB + PHONE_DESC_BOB
+                + EMAIL_DESC_BOB + ADDRESS_DESC_BOB, expectedMessageMissingTelegram);
+
+    }
+
+    @Test
+    public void parse_allCompulsoryFieldMissing_failure() {
+        String expectedMessageMissingName = AddCommand.MESSAGE_ALL_COMPULSORY_FIELDS_MISSING
+                + "\n" + AddCommand.MESSAGE_USAGE;
+
+        // missing name, github and telegram prefix
+        assertParseFailure(parser, VALID_NAME_BOB + VALID_TELEGRAM_BOB + VALID_GITHUB_BOB + PHONE_DESC_BOB
+                + EMAIL_DESC_BOB + ADDRESS_DESC_BOB, expectedMessageMissingName);
 
     }
 
