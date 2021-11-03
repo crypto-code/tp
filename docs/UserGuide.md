@@ -61,22 +61,23 @@ This User Guide is intended for basic to advanced users of CohortConnect. It pro
 <br/>
 1. Telegram Handle Conventions:
 <br/>
-* Handles can use a-z, 0-9 and underscores.
+• Handles can use a-z, 0-9 and underscores.
 <br/>
-* Handles are case-insensitive.
+• Handles are case-insensitive.
 <br/>
-* Handles must be at least five characters long, and maximum is 39 characters.
+• Handles must be at least five characters long, and maximum is 39 characters.
 <br/>
+
 
 2. GitHub Username Conventions:
 <br/>
-* GitHub username may only contain alphanumeric characters or hyphens.
+• GitHub username may only contain alphanumeric characters or hyphens.
 <br/>
-* GitHub username cannot have multiple consecutive hyphens. 
+• GitHub username cannot have multiple consecutive hyphens. 
 <br/>
-* GitHub username cannot begin or end with a hyphen. 
+• GitHub username cannot begin or end with a hyphen. 
 <br/>
-* Maximum is 39 characters.
+• Maximum is 39 characters.
 <br/>
 
 </div>
