@@ -74,6 +74,7 @@ public class CommandTestUtil {
     public static final String VALID_FILENAME_CSV = "importNewPerson.csv";
     public static final String VALID_EXISTING_FILE = "existingFile.json";
     public static final String INVALID_FILENAME_TXT = "importNewPerson.txt";
+    public static final String INVALID_DOUBLE_FILENAME_TXT = "importNewPerson.json importNewPerson.json";
 
     public static final EditCommand.EditPersonDescriptor DESC_AMY;
     public static final EditCommand.EditPersonDescriptor DESC_BOB;
