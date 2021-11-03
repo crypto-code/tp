@@ -1,6 +1,7 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_DOUBLE_FILENAME_TXT;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_FILENAME_TXT;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_FILENAME_CSV;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_FILENAME_JSON;
@@ -31,6 +32,13 @@ public class ImportCommandParserTest {
     public void parse_fileNameWrongExtension_failure() {
         // file name present, but is not .json or .csv
         assertParseFailure(parser, INVALID_FILENAME_TXT,
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, ImportCommand.MESSAGE_USAGE));
+    }
+
+    @Test
+    public void parse_fileNameDoubleFile_failure() {
+        // file name present, but is not .json or .csv
+        assertParseFailure(parser, INVALID_DOUBLE_FILENAME_TXT,
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, ImportCommand.MESSAGE_USAGE));
     }
 
