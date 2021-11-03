@@ -1,5 +1,6 @@
 package seedu.address.model.person;
 import java.util.List;
+import java.util.Locale;
 import java.util.function.Predicate;
 
 import seedu.address.model.tag.Tag;
@@ -17,7 +18,7 @@ public class TagContainsKeywordsPredicate implements Predicate<Person> {
     @Override
     public boolean test(Person person) {
         return keywords.stream()
-                .anyMatch(keyword -> person.getTags().contains(new Tag(keyword)));
+                .anyMatch(keyword -> person.getTags().contains(new Tag(keyword.toLowerCase(Locale.ROOT))));
     }
 
     @Override
@@ -28,4 +29,3 @@ public class TagContainsKeywordsPredicate implements Predicate<Person> {
     }
 
 }
-
