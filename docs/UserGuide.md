@@ -59,7 +59,9 @@ This User Guide is intended for basic to advanced users of CohortConnect. It pro
 
 :bulb: TIP:
 <br/>
+  
 1. Telegram Handle Conventions:
+  
 <ul>
 <li> Handles can use a-z, 0-9 and underscores. </li>
 <li> Handles are case-insensitive. </li>
@@ -67,7 +69,7 @@ This User Guide is intended for basic to advanced users of CohortConnect. It pro
 </ul>
   
 <br/>
-<<<<<<< HEAD
+
 • Handles can use a-z, 0-9 and underscores.
 <br/>
 • Handles are case-insensitive.
@@ -86,15 +88,15 @@ This User Guide is intended for basic to advanced users of CohortConnect. It pro
 <br/>
 • Maximum is 39 characters.
 <br/>
-=======
+   
 2. GitHub Username Conventions:
+  
 <ul>
 <li> GitHub username may only contain alphanumeric characters or hyphens. </li>
 <li> GitHub username cannot have multiple consecutive hyphens. </li>
 <li> GitHub username cannot begin or end with a hyphen. </li>
 <li> Maximum is 39 characters. </li>
 </ul>
->>>>>>> f6178f4d (Update UserGuide.md)
 
 </div>
 
@@ -175,24 +177,6 @@ Example:
 
 ```
 edit 1 n/John te/john_123 t/TA
-```
-
-### Edit a Student's Tags - `tag`
-
-Adds or removes tags of a Student Contact in the Address Book.
-* Use `a/<TAG>` to indicate tags to be added.
-* Use `r/<TAG>` to indicate tags to be removed.
-
-Format:
-
-```
-tag <INDEX> [a/<TAG>] [r/<TAG>]
-```
-
-Example:
-
-```
-tag 1 a/friends r/colleague
 ```
 
 ### Edit your Profile - `edit profile`
@@ -511,7 +495,6 @@ A: Please **strictly** follow the command format to avoid such issues.
 | Delete a Student | `delete <INDEX> ` |
 | Exit the App | `exit` |
 | Edit a Student | `edit <INDEX> [n/<NAME>] [te/<TELEGRAM>] [g/<GITHUB>] [p/<PHONE>] [e/<EMAIL>] [a/<ADDRESS>] [t/<TAG>]` |
-| Edit a Student's Tags | `tag <INDEX> [a/<TAG>] [r/<TAG>]` |
 | Edit your Profile | `edit profile [n/<NAME>] [te/<TELEGRAM>] [g/<GITHUB>]` |
 | Exporting Student Contacts | `export <FILENAME>.json` <br> `export <FILENAME>.csv` |
 | Favourite a Student Contact | `fav <INDEX>` |
