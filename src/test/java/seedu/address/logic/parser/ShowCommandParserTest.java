@@ -8,7 +8,6 @@ import java.util.Collections;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.CommandTestUtil;
 import seedu.address.logic.commands.ShowCommand;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 
@@ -18,7 +17,8 @@ public class ShowCommandParserTest {
 
     @Test
     public void parse_invalidArg_throwsParseException() {
-        assertParseFailure(parser, CommandTestUtil.INVALID_NAME, String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+        String invalidName = "Ch4rlo++#";
+        assertParseFailure(parser, invalidName, String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                 ShowCommand.MESSAGE_USAGE));
     }
 
