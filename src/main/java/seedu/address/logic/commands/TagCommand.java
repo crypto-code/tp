@@ -18,7 +18,7 @@ public class TagCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": adds/removes the specified tag(s) for the required contact.\n"
             + "Parameters: INDEX (must be a positive integer) a/TAG [r/TAG] [MORE_TAGS]..\n"
-            + "Example: " + COMMAND_WORD + " 1 friends ";
+            + "Example: " + COMMAND_WORD + " 1 a/friends ";
 
     public static final String MESSAGE_TAGGED_PERSON_SUCCESS = "Successfully added/removed required tag(s) to %1$s!";
     public static final String MESSAGE_INVALID_TAG_FORMAT = "Invalid Tag Format in Command";
