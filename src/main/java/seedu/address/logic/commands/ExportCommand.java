@@ -23,7 +23,7 @@ public class ExportCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Exports the current list of contacts to a specified filename.\n"
             + "Parameters: FILENAME.json or FILENAME.csv\n"
-            + "Example: " + COMMAND_WORD + " friends";
+            + "Example: " + COMMAND_WORD + " friends.csv";
 
     public static final String MESSAGE_EXPORT_SUCCESS = "Exported to file: %s";
 
