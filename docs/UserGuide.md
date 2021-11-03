@@ -35,7 +35,7 @@ This User Guide is intended for basic to advanced users of CohortConnect. It pro
 ## Quick Start
 
 1. Ensure you have Java 11 or above installed in your computer.
-2. Download the latest `CohortConnect.jar`  release from [here](https://github.com/AY2122S1-CS2103T-T10-1/tp/releases).
+2. Download the latest `CohortConnect.jar` release from [here](https://github.com/AY2122S1-CS2103T-T10-1/tp/releases).
 3. Place `CohortConnect.jar` in an empty folder.
 4. Double-click the jar file to start the program.
 5. The UI would look like this:
@@ -51,22 +51,25 @@ This User Guide is intended for basic to advanced users of CohortConnect. It pro
 </p>
 
 > * This Window is only displayed once, when the Student launches the App for the first time.
-1. Enter Your Name in the `Name Field`.
-2. Enter Your __VALID__ Telegram Handle in the `Telegram Field`.
-3. Enter Your __VALID__ GitHub Username in the `GitHub Field`.
+6. Enter Your Name in the `Name Field`.
+7. Enter Your __VALID__ Telegram Handle in the `Telegram Field`.
+8. Enter Your __VALID__ GitHub Username in the `GitHub Field`.
 
-> :bulb: TIP: 
-> 1. Telegram Handle Conventions: 
-> * Handles can use a-z, 0-9 and underscores. 
-> * Handles are case-insensitive,  
-> * Handles must be at least five characters long, and maximum is 39 characters.
-> 
-> 2. GitHub Username Conventions:
-> * Github username may only contain alphanumeric characters or hyphens.
-> * Github username cannot have multiple consecutive hyphens. 
-> * Github username cannot begin or end with a hyphen. 
-> * Maximum is 39 characters.
+<div markdown="span" class="alert alert-primary">
 
+:bulb: TIP: 
+1. Telegram Handle Conventions: 
+* Handles can use a-z, 0-9 and underscores. 
+* Handles are case-insensitive,  
+* Handles must be at least five characters long, and maximum is 39 characters.
+
+2. GitHub Username Conventions:
+* GitHub username may only contain alphanumeric characters or hyphens.
+* GitHub username cannot have multiple consecutive hyphens. 
+* GitHub username cannot begin or end with a hyphen. 
+* Maximum is 39 characters.
+
+</div>
 
 <p align="center">
 <img src="https://github.com/AY2122S1-CS2103T-T10-1/tp/blob/master/docs/images/MainWindow.png?raw=true">
