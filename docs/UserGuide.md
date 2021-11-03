@@ -177,6 +177,24 @@ Example:
 edit 1 n/John te/john_123 t/TA
 ```
 
+### Edit a Student's Tags - `tag`
+
+Adds or removes tags of a Student Contact in the Address Book.
+* Use `a/<TAG>` to indicate tags to be added.
+* Use `r/<TAG>` to indicate tags to be removed.
+
+Format:
+
+```
+tag <INDEX> [a/<TAG>] [r/<TAG>]
+```
+
+Example:
+
+```
+tag 1 a/friends r/colleague
+```
+
 ### Edit your Profile - `edit profile`
 
 Edits the Profile linked to the Address Book.
@@ -493,6 +511,7 @@ A: Please **strictly** follow the command format to avoid such issues.
 | Delete a Student | `delete <INDEX> ` |
 | Exit the App | `exit` |
 | Edit a Student | `edit <INDEX> [n/<NAME>] [te/<TELEGRAM>] [g/<GITHUB>] [p/<PHONE>] [e/<EMAIL>] [a/<ADDRESS>] [t/<TAG>]` |
+| Edit a Student's Tags | `tag <INDEX> [a/<TAG>] [r/<TAG>]` |
 | Edit your Profile | `edit profile [n/<NAME>] [te/<TELEGRAM>] [g/<GITHUB>]` |
 | Exporting Student Contacts | `export <FILENAME>.json` <br> `export <FILENAME>.csv` |
 | Favourite a Student Contact | `fav <INDEX>` |
