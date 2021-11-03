@@ -17,4 +17,7 @@ public class Messages {
             + "be empty.";
     public static final String MESSAGE_GITHUB_FIELD_CANNOT_BE_EMPTY = "Invalid format! Github field cannot "
             + "be empty.";
+    public static final String MESSAGE_COMMAND_DESCRIPTION_CANNOT_BE_EMPTY = " command description cannot be empty!";
+    public static final String MESSAGE_COMMAND_DOES_NOT_TAKE_PARAMETERS = " command doesn't take parameters!";
+    public static final String MESSAGE_PARSE_COMMAND_ERROR = "Error encountered while parsing command!";
 }
