@@ -182,10 +182,10 @@ find <NAME> [MORE_NAMES]
 * The search **is case-insensitive**.  e.g. alex will match Alex
 * Persons matching at least one keyword will be returned (i.e. OR search). e.g. Hans Bo will return Hans Gruber, Bo Yang
 
-Examples :
+Examples:
 
-* Search by single name : `find alex`
-* Search by multiple names : `find ai bob dom` 
+* Search by single name: `find alex`
+* Search by multiple names: `find ai bob dom` 
 
 <br>
 
@@ -199,7 +199,7 @@ find <TAG> [MORE_TAGS]
 * Matches students with the **exact** tag name. e.g. `find t/friend` will only display student contacts with the tag `friend` and not `friends`.
 * The search **is case-insensitive**. e.g `find t/Friends` will match contacts with the tag `friends` too.
 
-Examples :
+Examples:
 
 * Search by single tag: `find t/classmates` 
 * Search by multiple tags: `find t/friends neighbours`
@@ -216,7 +216,7 @@ find te/<TELEGRAM_HANDLE> [MORE_TELEGRAM_HANDLES]
 * Matches student contacts with the exact Telegram handle or Telegram handle that contain the keyword as a substring. e.g `find te/Al` will display student contacts with the Telegram handles `al_x1` and `randall_xo`.
 * The search **is case-insensitive**. e.g `find te/Al` will find the contact with the Telegram handle `alex` too.
 
-Examples :
+Examples:
 
 * Search by single Telegram handle: `find te/dY` 
 * Search by multiple Telegram handles: `find te/bob al_x1` 
@@ -232,7 +232,7 @@ find g/GITHUB_USERNAME [MORE_GITHUB_USERNAMES]
 * Matches student contacts with the exact GitHub username or GitHub username that contain the keyword as a substring. e.g `find g/ai` will display student contacts with the GitHub usernames `ai-coder` and `kaira1208`.
 * The search **is case-insensitive**. e.g `find g/Al` will find the contact with the github username `Alex`.
 
-Examples :
+Examples:
 
 * Search by single GitHub username: `find g/dY` 
 * Search by multiple GitHub usernames: `find g/ai-coder kaira1208`
