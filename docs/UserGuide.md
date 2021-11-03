@@ -167,55 +167,77 @@ edit profile te/bob_osum
 
 ### Find a Student - `find`
 
-Finds an existing Student Contact by name(s), tag(s), or telegram handle(s).
+Finds students contacts whose names, Telegram handles, GitHub usernames or assigned tags contain any of the given keywords.
 
 Format 1: 
-
 ```
-find <NAME>
-```
-
-Example 1:
-
-```
-find John
+find <NAME> [MORE_NAMES]
 ```
 
-Format 2: 
 
+* Searches for matching names
+
+  **:information_source: Name must contain only alphabetical characters.**<br>
+* Matches contact names with the **exact** keyword or those that contain the keyword as substring. e.g. `find al` will return <b><u>Al</u></b>ex Yeoh as well as Roy B<b><u>al</u></b>akrishnan
+* The search **is case-insensitive**.  e.g. alex will match Alex
+* Persons matching at least one keyword will be returned (i.e. OR search). e.g. Hans Bo will return Hans Gruber, Bo Yang
+
+Examples :
+
+* Search by single name : `find alex`
+* Search by multiple names : `find ai bob dom` 
+
+<br>
+
+Format 2:
 ```
-find t/<TAG>
+find <TAG> [MORE_TAGS]
 ```
 
-Example 2:
 
-```
-find t/friends
-```
+* Searches for contacts with matching tags.
+* Matches students with the **exact** tag name. e.g. `find t/friend` will only display student contacts with the tag `friend` and not `friends`.
+* The search **is case-insensitive**. e.g `find t/Friends` will match contacts with the tag `friends` too.
+
+Examples :
+
+* Search by single tag: `find t/classmates` 
+* Search by multiple tags: `find t/friends neighbours`
+
+<br>
 
 Format 3: 
-
 ```
-find te/<TELEGRAM>
-```
-
-Example 3:
-
-```
-find te/alex_1 bobx2
+find te/<TELEGRAM_HANDLE> [MORE_TELEGRAM_HANDLES]
 ```
 
-Format 4:
 
+* Searches for a student contact by telegram handle.
+* Matches student contacts with the exact Telegram handle or Telegram handle that contain the keyword as a substring. e.g `find te/Al` will display student contacts with the Telegram handles `al_x1` and `randall_xo`.
+* The search **is case-insensitive**. e.g `find te/Al` will find the contact with the Telegram handle `alex` too.
+
+Examples :
+
+* Search by single Telegram handle: `find te/dY` 
+* Search by multiple Telegram handles: `find te/bob al_x1` 
+
+<br>
+
+Format 4: 
 ```
-find g/<GITHUB>
+find g/GITHUB_USERNAME [MORE_GITHUB_USERNAMES]
 ```
 
-Example 4:
+* Searches for a student contact by GitHub username.
+* Matches student contacts with the exact GitHub username or GitHub username that contain the keyword as a substring. e.g `find g/ai` will display student contacts with the GitHub usernames `ai-coder` and `kaira1208`.
+* The search **is case-insensitive**. e.g `find g/Al` will find the contact with the github username `Alex`.
 
-```
-find g/david_boss
-```
+Examples :
+
+* Search by single GitHub username: `find g/dY` 
+* Search by multiple GitHub usernames: `find g/ai-coder kaira1208`
+
+<h3 id = "Show"> </h3>
 
 ### Show a Student Contact - `show`
 
