@@ -52,7 +52,7 @@ public class TypicalPersons {
     public static final String BENSON_PHONE = "98765432";
     public static final String BENSON_EMAIL = "johnd@example.com";
     public static final String BENSON_ADDRESS = "311, Clementi Ave 2, #02-25";
-    public static final String BENSON_TAG_1 = "owesMoney";
+    public static final String BENSON_TAG_1 = "owesmoney";
     public static final String BENSON_TAG_2 = "friends";
     public static final boolean BENSON_IS_FAVOURITE = false;
     public static final Person BENSON =
