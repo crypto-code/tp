@@ -1,16 +1,24 @@
 package seedu.address.logic.ai;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import seedu.address.model.person.Person;
+import seedu.address.testutil.TypicalPersons;
 
 public class AiTest {
 
     private static final HashMap<String, Double> point1 = new HashMap<>();
     private static final HashMap<String, Double> point2 = new HashMap<>();
     private static final HashMap<String, Double> point3 = new HashMap<>();
+    private static final HashMap<String, HashMap<String, Double>> others = new HashMap<>();
 
     @BeforeAll
     public static void setUp() {
@@ -25,6 +33,9 @@ public class AiTest {
         point3.put("Python", 0.2);
         point3.put("Java", 0.3);
         point3.put("repo-count", 0.2);
+
+        others.put("p2", point2);
+        others.put("p3", point3);
     }
 
     @Test
@@ -52,15 +63,39 @@ public class AiTest {
     }
 
     @Test
-    public void getSimilarityScore_featureList_success() {
-        HashMap<String, HashMap<String, Double>> points = new HashMap<>();
-        points.put("p2", point2);
-        points.put("p3", point2);
+    public void getCommonLanguages_validFeatures_success() {
+        HashMap<String, ArrayList<String>> commons = Ai.getCommonLanguages(point1, others);
 
-        HashMap<String, Double> scores = Ai.getSimilarityScore(point1, points);
+        ArrayList<String> expectedCommonP2 = new ArrayList<>(List.of("Python"));
+        Assertions.assertTrue(commons.get("p2").containsAll(expectedCommonP2));
+
+        ArrayList<String> expectedCommonP3 = new ArrayList<>(List.of("Python", "Java"));
+        Assertions.assertTrue(commons.get("p3").containsAll(expectedCommonP3));
+    }
+
+    @Test
+    public void getSimilarityScore_featureList_success() {
+        HashMap<String, Double> scores = Ai.getSimilarityScore(point1, others);
         String[] expectedOrder = new String[] {"p3", "p2"};
         String[] actualOrder = scores.keySet().toArray(new String[0]);
         Assertions.assertEquals(expectedOrder[0], actualOrder[0], "Incorrect 1st Element");
         Assertions.assertEquals(expectedOrder[1], actualOrder[1], "Incorrect 2nd Element");
+    }
+
+    @Test
+    public void sortProfiles_featureList_success() {
+        ObservableList<Person> list = FXCollections.observableArrayList();
+        list.addAll(TypicalPersons.BENSON, TypicalPersons.CARL);
+        if (!ThreadProcessor.isEmpty()) {
+            Assertions.assertFalse(Ai.sortProfiles(TypicalPersons.ALICE, list));
+        }
+        while (!ThreadProcessor.isEmpty()) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        Assertions.assertTrue(Ai.sortProfiles(TypicalPersons.ALICE, list));
     }
 }

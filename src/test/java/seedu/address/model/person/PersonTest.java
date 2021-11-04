@@ -91,7 +91,7 @@ public class PersonTest {
 
     @Test
     public void hashTest() {
-        int expected = 658747986;
+        int expected = 1772994055;
         assertEquals(expected, ALICE.hashCode());
     }
 

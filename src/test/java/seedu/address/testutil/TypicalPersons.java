@@ -29,7 +29,7 @@ public class TypicalPersons {
 
     public static final String ALICE_NAME = "Alice Pauline";
     public static final String ALICE_TELEGRAM = "alice_pauline";
-    public static final String ALICE_GITHUB = "alice-pauline";
+    public static final String ALICE_GITHUB = "alice";
     public static final String ALICE_PHONE = "94351253";
     public static final String ALICE_EMAIL = "alice@example.com";
     public static final String ALICE_ADDRESS = "123, Jurong West Ave 6, #08-111";
@@ -48,7 +48,7 @@ public class TypicalPersons {
                     .build();
     public static final String BENSON_NAME = "Benson Meier";
     public static final String BENSON_TELEGRAM = "benson_meier";
-    public static final String BENSON_GITHUB = "benson-meier";
+    public static final String BENSON_GITHUB = "benson";
     public static final String BENSON_PHONE = "98765432";
     public static final String BENSON_EMAIL = "johnd@example.com";
     public static final String BENSON_ADDRESS = "311, Clementi Ave 2, #02-25";
@@ -68,7 +68,7 @@ public class TypicalPersons {
                     .build();
     public static final String CARL_NAME = "Carl Kurz";
     public static final String CARL_TELEGRAM = "carl_kurz";
-    public static final String CARL_GITHUB = "carl-kurz";
+    public static final String CARL_GITHUB = "carl";
     public static final String CARL_PHONE = "95352563";
     public static final String CARL_EMAIL = "heinz@example.com";
     public static final String CARL_ADDRESS = "wall street";
