@@ -300,6 +300,8 @@ show 4
 
 Imports Student Contacts from the specified JSON or CSV file. File must be in the same folder as the application.
 
+Importing will not remove existing contacts, and skips duplicate contacts.
+
 Format 1:
 
 ```
