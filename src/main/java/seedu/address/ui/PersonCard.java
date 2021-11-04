@@ -1,6 +1,7 @@
 package seedu.address.ui;
 
 import java.util.Comparator;
+import java.util.Locale;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -62,10 +63,9 @@ public class PersonCard extends UiPart<Region> {
         super(FXML);
         this.person = person;
         id.setText(displayedIndex + ". ");
-        Text nameText = new Text(person.getName().fullName);
-        nameText.getStyleClass().add("big_label");
-        nameText.setFill(Color.WHITE);
-        name.getChildren().add(nameText);
+
+        setName(person);
+
         String[] tagClasses = new String[] {"tag-general", "tag-event", "tag-mod"};
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
@@ -106,6 +106,29 @@ public class PersonCard extends UiPart<Region> {
             favBtn.setImage(FAVORITE);
         } else {
             favBtn.setImage(NOT_FAVORITE);
+        }
+    }
+
+    public void setName(Person person) {
+        if (person.getFindHighlight() != null) {
+            String nameString = person.getName().fullName.toLowerCase(Locale.ROOT);
+            int start = nameString.indexOf(person.getFindHighlight());
+            int end = start + person.getFindHighlight().length();
+            Text startText = new Text(person.getName().fullName.substring(0, start));
+            Text midText = new Text(person.getName().fullName.substring(start, end));
+            Text endText = new Text(person.getName().fullName.substring(end));
+            startText.getStyleClass().add("big_label");
+            midText.getStyleClass().add("big_label");
+            endText.getStyleClass().add("big_label");
+            startText.setFill(Color.WHITE);
+            midText.setFill(Color.LIME);
+            endText.setFill(Color.WHITE);
+            name.getChildren().addAll(startText, midText, endText);
+        } else {
+            Text nameText = new Text(person.getName().fullName);
+            nameText.getStyleClass().add("big_label");
+            nameText.setFill(Color.WHITE);
+            name.getChildren().add(nameText);
         }
     }
 

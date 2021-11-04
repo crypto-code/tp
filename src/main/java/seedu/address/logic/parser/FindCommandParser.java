@@ -55,7 +55,7 @@ public class FindCommandParser implements Parser<FindCommand> {
     public FindCommand parseFindName(String trimmedArgs) throws ParseException {
         assert(!trimmedArgs.isEmpty());
         String[] nameKeywords = trimmedArgs.split("\\s+");
-        return new FindCommand(new NameContainsKeywordsPredicate(Arrays.asList(nameKeywords)));
+        return new FindCommand(new NameContainsKeywordsPredicate(Arrays.asList(nameKeywords), true));
     }
 
     /**

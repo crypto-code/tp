@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 
-<VBox id="cardDetailPane" style="-fx-background-color: #313131#313131;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<VBox id="cardDetailPane" style="-fx-background-color: #313131#313131;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox fx:id="cardPane" prefHeight="200.0" prefWidth="100.0">
          <children>

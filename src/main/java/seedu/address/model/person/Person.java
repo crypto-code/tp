@@ -44,6 +44,8 @@ public class Person implements Comparable<Person> {
     private ArrayList<String> commonLanguages = new ArrayList<>();
     private double simScore = 0.0;
 
+    private String findHighlight = null;
+
     private final Logger logger = LogsCenter.getLogger(getClass());
 
     /**
@@ -159,6 +161,18 @@ public class Person implements Comparable<Person> {
 
     public HashMap<String, Double> getGitStats() {
         return gitStats;
+    }
+
+    public void setFindHighlight(String findHighlight) {
+        this.findHighlight = findHighlight;
+    }
+
+    public String getFindHighlight() {
+        return findHighlight;
+    }
+
+    public void clearHighlights() {
+        this.findHighlight = null;
     }
 
     /**

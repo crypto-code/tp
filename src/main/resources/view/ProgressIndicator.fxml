@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ProgressBar fx:id="progressBar" prefHeight="20.0" prefWidth="400.0" />
       <Label style="-fx-font-size: 16; -fx-text-fill: white;" text="GitHub Metadata Extraction in progress, Please refresh in a while." VBox.vgrow="ALWAYS">
