@@ -89,7 +89,9 @@ public class AiTest {
         if (!ThreadProcessor.isEmpty()) {
             Assertions.assertFalse(Ai.sortProfiles(TypicalPersons.ALICE, list));
         }
-        while (!ThreadProcessor.isEmpty()) {
+        while (TypicalPersons.ALICE.getGitStats().isEmpty()
+                || TypicalPersons.BENSON.getGitStats().isEmpty()
+                || TypicalPersons.CARL.getGitStats().isEmpty()) {
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
