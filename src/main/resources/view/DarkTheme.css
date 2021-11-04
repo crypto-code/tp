@@ -378,7 +378,7 @@
 
 #langs {
     -fx-hgap: 7;
-    -fx-vgap: 3;
+    -fx-vgap: 7;
 }
 
 #langs .label {

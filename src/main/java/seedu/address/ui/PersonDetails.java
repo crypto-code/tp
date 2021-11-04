@@ -19,6 +19,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.util.GitHubUtil;
+import seedu.address.commons.util.LangColorUtil;
 import seedu.address.model.person.Person;
 
 
@@ -143,7 +144,13 @@ public class PersonDetails extends UiPart<Region> {
 
         simScore.setText(person.getSimScore() + "%");
         commonLang.getChildren().removeIf(l -> true);
-        person.getCommonLanguages().forEach(l -> commonLang.getChildren().add(new Label(l)));
+        person.getCommonLanguages().forEach(l -> {
+            Label temp = new Label(l);
+            String style = "-fx-background-color: " + LangColorUtil.getHex(LangColorUtil.getBackColor(l)) + "; ";
+            style += "-fx-text-fill: " + LangColorUtil.getHex(LangColorUtil.getFontColor(l));
+            temp.setStyle(style);
+            commonLang.getChildren().add(temp);
+        });
 
         if (showSimilarity) {
             detailOptional.setVisible(false);
