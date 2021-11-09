@@ -119,7 +119,6 @@ public class GitHubUtil {
             try {
                 in = new BufferedInputStream(url.openStream());
             } catch (IOException e) {
-                System.out.println(target.toString());
                 e.printStackTrace();
             }
 
