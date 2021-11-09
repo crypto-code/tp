@@ -97,7 +97,7 @@ public class GitHubUtil {
             return DEFAULT_USER_PROFILE_PICTURE;
         } else {
             Pattern p = Pattern.compile(
-                    "(?<=class=avatar avatar-user)(.*?)(?=\\s*/>)");
+                    "(?<=class=avatar avatar-user width-full)(.*?)(?=\\s*/>)");
             Matcher m = p.matcher(htmlString);
             String target = "";
 
@@ -119,6 +119,7 @@ public class GitHubUtil {
             try {
                 in = new BufferedInputStream(url.openStream());
             } catch (IOException e) {
+                System.out.println(target.toString());
                 e.printStackTrace();
             }
 
