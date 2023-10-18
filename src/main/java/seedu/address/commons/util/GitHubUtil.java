@@ -97,13 +97,13 @@ public class GitHubUtil {
             return DEFAULT_USER_PROFILE_PICTURE;
         } else {
             Pattern p = Pattern.compile(
-                    "(?<=class=avatar avatar-user)(.*?)(?=\\s*/>)");
-            Matcher m = p.matcher(htmlString);
+                    "src=(.*)\\s(?:.*)(?=class=avatar avatar-user)");
+            Matcher m = p.matcher(htmlString.substring(80000, 83000));
             String target = "";
             while (m.find()) {
                 target = m.group();
             }
-            target = target.split("src=")[1];
+            target = target.split("src=")[1].split(" ")[0];
             URL url = null;
             try {
                 url = new URL(target);
@@ -189,13 +189,13 @@ public class GitHubUtil {
             logger.severe("Data could not be obtained.");
             return null;
         } else {
-            Pattern p = Pattern.compile("(?<=text-bold mr-1)(.*?)(?=</a>)");
+            Pattern p = Pattern.compile("(\\w+)<\\/span> <span>([\\d\\.]+)%");
             Matcher m = p.matcher(htmlString);
             HashMap<String, Double> repoLanguages = new HashMap<>();
             while (m.find()) {
-                String[] texts = StringUtil.clean(m.group(), ">").split("</span");
-                String language = texts[0];
-                String value = texts[1].replace(" <span", "").replace("%", "");
+                // String[] texts = StringUtil.clean(m.group(), ">").split("</span");
+                String language = m.group(1);
+                String value = m.group(2);
                 repoLanguages.put(language, Double.parseDouble(value) / 100);
             }
             return repoLanguages;
@@ -261,17 +261,17 @@ public class GitHubUtil {
         if (htmlString == null) {
             throw new RuntimeException("Data could not be obtained.");
         } else {
-            Pattern p = Pattern.compile("(?<=Repositories)(.*?)(?=</span>)");
+            Pattern p = Pattern.compile("(\\d+) repositories available");
             Matcher m = p.matcher(htmlString);
             String target = "";
 
             while (m.find()) {
-                target = m.group();
+                target = m.group(1);
             }
             if (target.isBlank()) {
                 return 0;
             }
-            return Integer.parseInt(target.split("class=Counter>")[1]);
+            return Integer.parseInt(target);
         }
     }
 
